@@ -5,4 +5,7 @@ require 'colorize'
 
 board = GameBoard.new
 
-puts board.possible_colors.values
+puts board.possible_colors[:blue] + " #{board.possible_colors[:red]}"
+
+
+#puts 'test'.colorize(:color => :green, :mode => :blink)
