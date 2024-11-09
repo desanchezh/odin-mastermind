@@ -17,6 +17,32 @@ class GameBoard
     choice_array.each do |color|
       display.push(@possible_colors[color])
     end
-    puts display.join(' ')
+    puts display.join(' ').colorize(mode: :blink)
+  end
+
+  def check_exact_match(guess_array, solution_array)
+    exact_matches = 0
+    guess_array.zip(solution_array).each do |pair|
+      (exact_matches += 1 if pair[0] == pair[1])
+    end
+    if exact_matches == 4
+      puts 'All guesses correct!!'
+      exit
+      # add board display here?
+    end
+    exact_matches
+  end
+
+  def check_color_match(guess_array, solution_array)
+    color_matches = 0
+    (guess_array & solution_array).map do |e|
+      color_matches += [guess_array.count(e), solution_array.count(e)].min
+    end
+    color_matches
+  end
+
+  def display_matches(exact_matches, color_matches)
+    puts "exact matches: #{exact_matches} "
+    puts "color matches but wrong spot: #{color_matches - exact_matches} "
   end
 end
