@@ -7,7 +7,7 @@ class Player
     @guesses = []
     p "available colors #{possible_colors.keys}"
     4.times do |i|
-      puts "type your guess for position #{i + 1}"
+      puts "type your choice for position #{i + 1}".colorize(mode: :bold)
       guess = gets
       @guesses.push(guess.chomp.to_sym)
     end

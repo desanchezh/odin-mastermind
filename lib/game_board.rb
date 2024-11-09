@@ -42,7 +42,14 @@ class GameBoard
   end
 
   def display_matches(exact_matches, color_matches)
-    puts "exact matches: #{exact_matches} "
-    puts "color matches but wrong spot: #{color_matches - exact_matches} "
+    puts "exact matches: #{exact_matches} ".colorize(mode: :bold)
+    puts "color matches but wrong spot: #{color_matches - exact_matches}".colorize(mode: :bold)
+  end
+
+  def play_round(guess_array, solution_array)
+    display_pegs(guess_array)
+    exact_matches = check_exact_match(guess_array, solution_array)
+    color_matches = check_color_match(guess_array, solution_array)
+    display_matches(exact_matches, color_matches)
   end
 end

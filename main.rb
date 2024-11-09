@@ -6,17 +6,25 @@ require 'colorize'
 board = GameBoard.new
 computer = Computer.new
 player = Player.new
-p computer_choices = computer.random_choice(board.possible_colors)
 
-12.times do
+puts "Do you want to 'guess' or 'pick' the solution?"
+choice = gets.chomp
+case choice
+when 'guess'
+  p computer_choices = computer.random_choice(board.possible_colors)
+  12.times do
+    player_choices = player.get_guess(board.possible_colors)
+    board.play_round(player_choices, computer_choices)
+  end
+  puts 'game over! solution not found'
+when 'pick'
   p player_choices = player.get_guess(board.possible_colors)
-  board.display_pegs(player_choices)
-  exact_matches = board.check_exact_match(player_choices, computer_choices)
-  color_matches = board.check_color_match(player_choices, computer_choices)
-  board.display_matches(exact_matches, color_matches)
+  12.times do
+    computer_choices = computer.random_choice(board.possible_colors)
+    board.play_round(computer_choices, player_choices)
+  end
+  puts 'GAME OVER! solution not found'.colorize(mode: :bold)
 end
-
-# should probably tuck away match checking and computer choice in a class and make it protected/priv
 
 # tested below
 # board.display_pegs(player_choice)
