@@ -7,17 +7,9 @@ board = GameBoard.new
 computer = Computer.new
 player = Player.new
 
-def display_pegs(choice_array, board)
-  display = []
-  choice_array.each do |color|
-    display.push(board.possible_colors[color])
-  end
-  puts display.join(' ')
-end
-
 player_choice = player.get_guess(board.possible_colors)
 
-display_pegs(player_choice, board)
+board.display_pegs(player_choice)
 
 # tested below
 # p computer.random_choice(board.possible_colors)

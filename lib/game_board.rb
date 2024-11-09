@@ -11,4 +11,12 @@ class GameBoard
     }
   end
   attr_reader :possible_colors
+
+  def display_pegs(choice_array)
+    display = []
+    choice_array.each do |color|
+      display.push(@possible_colors[color])
+    end
+    puts display.join(' ')
+  end
 end
