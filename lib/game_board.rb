@@ -10,6 +10,5 @@ class GameBoard
       white: 'XX'.colorize(color: :white, background: :white)
     }
   end
-
   attr_reader :possible_colors
 end

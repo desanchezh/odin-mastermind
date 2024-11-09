@@ -9,6 +9,7 @@ class Computer
     4.times do
       @random_keys.push(keys.sample)
     end
+    # protected ...uncomment when done testing
     @random_keys
   end
 end
