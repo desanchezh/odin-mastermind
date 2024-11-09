@@ -20,7 +20,7 @@ when 'guess'
 when 'pick'
   p player_choices = player.get_guess(board.possible_colors)
   12.times do
-    computer_choices = computer.random_choice(board.possible_colors)
+    computer_choices = computer.random_choice(board.possible_colors) # needs choices algo
     board.play_round(computer_choices, player_choices)
   end
   puts 'GAME OVER! solution not found'.colorize(mode: :bold)

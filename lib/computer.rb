@@ -12,4 +12,12 @@ class Computer
     # protected ...uncomment when done testing
     @random_keys
   end
+
+  # def smart_choice(possible_colors, exact_matches, color_matches)
+  #  keys = possible_colors.keys
+  #  @guess = %i[blue blue blue blue]
+  #  if exact_matches > 0
+  #
+  #  end
+  # end
 end
